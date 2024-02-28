@@ -100,7 +100,7 @@ const App = () => {
 
                         <Route path="*" element={<Home />} />
                     </Routes>
-                    <div className="container-fluid p-0 fixed-bottom mt-5">
+                    <div className="container-fluid p-0 mt-5">
                         <Footer />
                     </div>
                 </BrowserRouter>
