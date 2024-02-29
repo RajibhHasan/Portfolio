@@ -1,7 +1,17 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import {introdata} from "./content_option.js"
+
+import useFetchData from "../GetData/DataApi.jsx"
 const Theme = () => {
+	
+	const {
+		data,
+		isLoading,
+		error
+	} = useFetchData('http://localhost:5175/logo');
+	
+	
     return (
         <>
             <div>
@@ -9,17 +19,17 @@ const Theme = () => {
              <div className="row"  >
           <div className="col-12 col-md-6 text-white">
 
-         <div className=" m-auto "
+         <div className=" m-auto d-flex justify-content-center"
                         style={{
-                            height: "200px",
-                            width: "200px",
+                            height: "300px",
+                            width: "300px",
                             borderRadius: "50%",
                             overflow: "hidden"
                         }}
                   data-aos="flip-up"  >
                         <img
-                            className="rounded-circle w-100"
-                            src="../../../public/images/PhotoShot_1683366807667.jpeg"
+                            className=" rounded-circle w-90"
+                        src={data && data.icon}
                         />
                         </div>
 

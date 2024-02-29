@@ -1,8 +1,20 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { dataportfolio } from "./content_option.js";
 
 import { Link, NavLink } from "react-router-dom";
+import useFetchData from "../../components/GetData/DataApi.jsx"
 const PortfolioComp = () => {
+	                  const { data, isLoading, error } = useFetchData('http://localhost:5175/images');
+	const [dataApi, setDataApi] = useState();	
+	                                         	
+	
+	console.log(data)
+		
+
+
+	
+	
+	
     return (
         <>
             <div>
@@ -12,8 +24,13 @@ const PortfolioComp = () => {
                             <h1 className="display-4 mb-4">Portfolio</h1>
                             <hr className="t_border my-4 ml-0 text-left" />
                         </div>
+                        
+     
+                        
+                        
+                        
                         <div className="row p-2">
-                            {dataportfolio.map(item => {
+                {data && data.imagesUrl.map(item => {
                                 return (
                                     <>
                                         <div className="col-12 col-md-6 col-xl-4 mt-3">
@@ -25,7 +42,7 @@ const PortfolioComp = () => {
                                                     >
                                                         <img
                                                             className="img-fluid "
-                                                            src={item.img}
+                                                            src={item.link}
                                                             alt="Portfolio-image"
                                                             style={{
                                                                 height: "250px"
